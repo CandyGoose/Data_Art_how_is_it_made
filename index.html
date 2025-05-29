@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Глобальная карта населения (2000–2020)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/papaparse@5.3.2/papaparse.min.js"></script>
+  <link rel="stylesheet" href="styles/style.css" />
+</head>
+<body>
+
+  <!-- Навигация -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="#" class="logo">PopulationMap</a>
+      <ul class="nav-links">
+        <li><a href="#about">О проекте</a></li>
+        <li><a href="#how">Как это работает</a></li>
+        <li><a href="#map-section">Карта</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero">
+  <canvas id="bgCanvas"></canvas>
+  <div class="overlay"></div>
+  <div class="hero-content container">    
+      <h1>Изменение численности крупнейших городов мира</h1>
+      <p>Нажмите, чтобы увидеть, как росло население</p>
+      <a href="#map-section" class="btn">Посмотреть карту</a>
+  </section>
+
+  <!-- О проекте -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2>О проекте</h2>
+      <p>
+        Интерактивная карта показывает, как менялось население в городах
+        в период с 2000 по 2020 годы. Вы можете выбрать любой год и увидеть 
+        пропорциональные круги, которые отражают размер населения в каждом городе.
+      </p>
+    </div>
+  </section>
+
+    <section id="how" class="section alt">
+    <div class="container">
+        <h2>Как это работает</h2>
+        <div class="steps-cards">
+        <div class="step-card">
+            <div class="step-icon">💾</div>
+            <h3>Загрузка данных</h3>
+            <p>
+            На старте загружаюся данные: с географическими координатами городов и временными рядами населения.
+            </p>
+        </div>
+        <div class="step-card">
+            <div class="step-icon">🌐</div>
+            <h3>Визуализация</h3>
+            <p>
+            Отрисовываются круги, радиус которых пропорционален населению,
+            а цвет определяется шкалой от синего до красного.
+            </p>
+        </div>
+        <div class="step-card">
+            <div class="step-icon">🎯</div>
+            <h3>Интерактивность</h3>
+            <p>
+            Ползунок меняет год, а клики по точкам показывают число населения.
+            </p>
+        </div>
+        </div>
+    </div>
+    </section>
+
+
+  <!-- Карта -->
+  <section id="map-section" class="map-section">
+    <div id="map"></div>
+    <div id="timeline" class="timeline">
+      <label for="yearSlider">Год:</label>
+      <input type="range" id="yearSlider" min="2000" max="2020" step="1" value="2020">
+      <span id="yearLabel">2020</span>
+    </div>
+  </section>
+
+  <!-- футер -->
+  <footer class="footer">
+    <div class="container">
+      <p>Data Art: как это сделано?<br>Веб-технологии и инструменты для художников и исследователей</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="scripts/script.js"></script>
+</body>
+</html>
